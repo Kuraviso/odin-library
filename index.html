@@ -4,15 +4,63 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&family=Julius+Sans+One&display=swap"
+      rel="stylesheet"
+    />
     <script src="./script.js" defer></script>
     <title>Odin Library</title>
   </head>
   <body>
-    <input type="text" class="nameInput" />
-    <input type="text" class="authorInput" />
-    <input type="text" class="pagesInput" />
-    <input type="checkbox" class="readInput" />
-    <button type="button" class="addButton">Add Book</button>
-    <div class="container"></div>
+    <section class="sidebar">
+      <h1 class="sidebar-title">Bookverse</h1>
+      <div class="sidebar-links">
+        <a href="#">Home</a>
+        <a href="#">Explore</a>
+        <a href="#">Shop</a>
+        <a href="#">FAQ</a>
+        <a href="#">Support</a>
+      </div>
+    </section>
+    <header class="header">
+      <h2 class="header-title">My Books</h2>
+      <button type="button" class="add-button">New Book</button>
+    </header>
+    <main class="main">
+      <div>
+        <table class="main-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Author</th>
+              <th>Pages</th>
+              <th>Finished</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>hola</td>
+              <td>hola</td>
+              <td>hola</td>
+              <td><input type="checkbox" name="" id="" /></td>
+            </tr>
+            <tr>
+              <td>hola</td>
+              <td>hola</td>
+              <td>hola</td>
+              <td><input type="checkbox" name="" id="" /></td>
+            </tr>
+            <tr>
+              <td>hola</td>
+              <td>hola</td>
+              <td>hola</td>
+              <td><input type="checkbox" name="" id="" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
   </body>
 </html>

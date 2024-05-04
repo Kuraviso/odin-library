@@ -1,6 +1,161 @@
+:root {
+  --color1: #334155;
+  --color2: #1e293b;
+  --color3: #f8fafc;
+  --font-family: "Roboto", sans-serif;
+  --bg-gradient: linear-gradient(
+    45deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  --card-bg: #f8fafcb6;
+  --title-font: "Julius Sans One", sans-serif;
+  --font1: "Istok Web", sans-serif;
+}
+
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font1);
+}
+
+body {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 60px 1fr;
+  grid-template-areas:
+    "side header"
+    "side main";
+}
+
+.header {
+  background-color: var(--color3);
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 80px;
+}
+
+.sidebar {
+  background-color: var(--color2);
+  grid-area: side;
+  display: grid;
+  grid-template-rows: 60px 1fr;
+}
+
+.main {
+  background-color: var(--color1);
+  grid-area: main;
+}
+
+.sidebar-title {
+  font-family: var(--title-font);
+  padding-top: 50px;
+  font-size: 45px;
+  color: transparent;
+  text-align: center;
+  align-self: center;
+  background-image: var(--bg-gradient);
+  background-size: 200%;
+  background-clip: text;
+  animation: bg-animation 5s infinite alternate;
+}
+
+@keyframes bg-animation {
+  0% {
+    background-position: left;
+  }
+
+  100% {
+    background-position: right;
+  }
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+}
+
+.sidebar-links a {
+  font-size: 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  color: var(--color3);
+  text-transform: uppercase;
+  transition: text-decoration-thickness 1s;
+  z-index: 1;
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-links a:hover {
+  transform: scale(1.1);
+}
+
+.sidebar-links a::after {
+  content: "";
+  z-index: -1;
+  height: 3px;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  background: var(--color1);
+  width: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.sidebar-links a:hover::after,
+.sidebar-links a:focus::after {
+  opacity: 1;
+  width: 150%;
+}
+
+.header-title {
+  font-size: 22px;
+}
+
+.main-table {
+  background-color: var(--card-bg);
+  margin: 30px auto;
+  border-radius: 30px;
+  width: 90%;
+  padding: 20px;
+  text-align: center;
+}
+
+.main-table th,
+.main-table td {
+  padding: 12px 15px;
+}
+
+.main-table tbody tr {
+  border: 1px;
+}
+
+.add-button {
+  padding: 10px;
+  border-radius: 500px;
+  background-image: var(--bg-gradient);
+  border: none;
+  color: var(--color3);
+  background-size: 150%;
+  cursor: pointer;
+  transition: transform 0.2s ease-in;
+}
+
+.add-button:hover {
+  transform: scale(1.1);
 }
