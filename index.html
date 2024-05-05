@@ -26,18 +26,24 @@
       <div class="popup-content">
         <form action="" class="form">
           <h2 class="popup-title">Add a new Book!</h2>
-          <input type="text" id="bookName" placeholder="Book Name" required />
+          <input
+            type="text"
+            id="bookName"
+            placeholder="Book Name"
+            autocomplete="off"
+          />
           <input
             type="text"
             id="bookAuthor"
             placeholder="Book Author"
-            required
+            autocomplete="off"
           />
           <input
             type="number"
             id="bookPages"
             placeholder="# of pages"
-            required
+            min="1"
+            autocomplete="off"
           />
           <button type="submit" class="new-book">Add Book</button>
           <button type="button" class="cancel-button">Cancel</button>
@@ -69,26 +75,8 @@
               <th>Finished</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>hola</td>
-              <td>hola</td>
-              <td>hola</td>
-              <td><input type="checkbox" name="" id="" /></td>
-              <td><button class="x-button">x</button></td>
-            </tr>
-            <tr>
-              <td>hola</td>
-              <td>hola</td>
-              <td>hola</td>
-              <td><input type="checkbox" name="" id="" /></td>
-            </tr>
-            <tr>
-              <td>hola</td>
-              <td>hola</td>
-              <td>hola</td>
-              <td><input type="checkbox" name="" id="" /></td>
-            </tr>
+          <tbody class="main-table-body">
+            <!-- content generated dinamically on js -->
           </tbody>
         </table>
       </div>
