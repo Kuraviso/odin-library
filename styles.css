@@ -145,7 +145,8 @@ body {
   border: 1px;
 }
 
-.add-button {
+.add-button,
+.new-book {
   padding: 10px;
   border-radius: 500px;
   background-image: var(--bg-gradient);
@@ -156,6 +157,116 @@ body {
   transition: transform 0.2s ease-in;
 }
 
-.add-button:hover {
+.add-button:hover,
+.cancel-button:hover,
+.new-book:hover {
+  transform: scale(1.1);
+}
+
+.popup,
+.remove-book {
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+}
+
+.popup-content,
+.remove-book-content {
+  height: max-content;
+  width: 500px;
+  background: var(--color3);
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.remove-book-content h2 {
+  display: block;
+  font-family: var(--title-font);
+  padding: 20px;
+}
+
+.remove-book-content p {
+  padding: 20px;
+  color: red;
+}
+
+.remove-book-content button {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.popup-content input {
+  margin: 20px auto;
+  background-color: transparent;
+  display: block;
+  width: 50%;
+  padding: 8px;
+  border: 1px solid gray;
+}
+
+.remove-button-yes,
+.remove-button-no {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 20px;
+  border: none;
+  width: 80px;
+}
+
+.remove-button-yes,
+.remove-button-no {
+  background-color: var(--color3);
+  color: var(--color1);
+  border: 1px solid var(--color1);
+}
+
+.remove-button-yes:hover,
+.remove-button-no:hover {
+  background-color: var(--color1);
+  color: var(--color3);
+}
+
+.cancel-button {
+  padding: 10px;
+  border-radius: 500px;
+  background-color: var(--color1);
+  color: var(--color3);
+  border: none;
+  margin: 5px 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in;
+}
+
+.popup-title {
+  font-family: var(--title-font);
+  font-size: 30px;
+  color: var(--color1);
+}
+
+.x-button {
+  border-radius: 100px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  text-align: center;
+  color: var(--color3);
+  background-color: red;
+  line-height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.x-button:hover {
   transform: scale(1.1);
 }

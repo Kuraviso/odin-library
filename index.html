@@ -14,6 +14,36 @@
     <title>Odin Library</title>
   </head>
   <body>
+    <div class="remove-book">
+      <div class="remove-book-content">
+        <h2>Remove Book?</h2>
+        <p>This action is permanent and can't be undone</p>
+        <button class="remove-button-yes">Yes</button>
+        <button class="remove-button-no">No</button>
+      </div>
+    </div>
+    <div class="popup">
+      <div class="popup-content">
+        <form action="">
+          <h2 class="popup-title">Add a new Book!</h2>
+          <input type="text" id="bookName" placeholder="Book Name" required />
+          <input
+            type="text"
+            id="bookAuthor"
+            placeholder="Book Author"
+            required
+          />
+          <input
+            type="number"
+            id="bookPages"
+            placeholder="# of pages"
+            required
+          />
+          <button type="submit" class="new-book">Add Book</button>
+          <button type="button" class="cancel-button">Cancel</button>
+        </form>
+      </div>
+    </div>
     <section class="sidebar">
       <h1 class="sidebar-title">Bookverse</h1>
       <div class="sidebar-links">
@@ -45,6 +75,7 @@
               <td>hola</td>
               <td>hola</td>
               <td><input type="checkbox" name="" id="" /></td>
+              <td><button class="x-button">x</button></td>
             </tr>
             <tr>
               <td>hola</td>
