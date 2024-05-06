@@ -5,6 +5,7 @@ const cancelBookButton = document.querySelector(".cancel-button");
 const xButton = document.querySelectorAll(".x-button");
 const removeBookWindow = document.querySelector(".remove-book");
 const noButton = document.querySelector(".remove-button-no");
+const yesButton = document.querySelector(".remove-button-yes");
 const newBookButton = document.querySelector(".new-book");
 const formElement = document.querySelector(".form");
 const tableBodyContainer = document.querySelector(".main-table-body");
@@ -42,6 +43,9 @@ const bookList = [
     completed: true,
   },
 ];
+
+//variable for the selected row to be used on the yes button
+let selectedRow;
 
 //event listeners for buttons
 newBookButton.addEventListener("click", (e) => {
@@ -83,6 +87,44 @@ noButton.addEventListener("click", () => {
   removeBookWindow.style.display = "none";
 });
 
+yesButton.addEventListener("click", () => {
+  if (selectedRow) {
+    const bookName = selectedRow.cells[0].innerText;
+
+    const index = bookList.findIndex((book) => book.name === bookName);
+
+    if (index !== -1) {
+      bookList.splice(index, 1);
+
+      addBookToTable();
+    } else {
+      console.error("Book not found in the array");
+    }
+
+    removeBookWindow.style.display = "none";
+
+    selectedRow = null;
+  }
+});
+
+document.addEventListener("change", (e) => {
+  if (e.target.type === "checkbox") {
+    let isChecked = e.target.checked;
+    const row = e.target.closest("tr");
+    const bookName = row.cells[0].innerText;
+
+    const index = bookList.findIndex((book) => book.name === bookName);
+
+    if (index !== -1) {
+      bookList[index].completed = isChecked;
+
+      console.log(
+        `${bookList[index].name} status ${bookList[index].completed}`
+      );
+    }
+  }
+});
+
 // Add event listeners to input fields to remove error class on keyup
 userInputName.addEventListener("keyup", removeError);
 userInputAuthor.addEventListener("keyup", removeError);
@@ -103,8 +145,6 @@ function book(name, author, pages) {
 function addBookToLibrary(nameInput, authorInput, pagesInput) {
   const newBook = new book(nameInput, authorInput, pagesInput);
   bookList.push(newBook);
-  console.log(newBook.info());
-  console.log(bookList);
   addBookToTable();
 }
 
@@ -138,7 +178,7 @@ function removeError() {
 
 function addBookToTable() {
   // Clear existing table content
-  tableBodyContainer.innerHTML = "";
+  tableBodyContainer.innerText = "";
 
   bookList.forEach((item) => {
     //create the new elements
@@ -153,6 +193,7 @@ function addBookToTable() {
 
     //add the required classes and types
     newCheckbox.type = "checkbox";
+    newCheckbox.classList.add("checkbox-button");
     newButton.classList.add("x-button");
 
     //attach the item info to the table
@@ -176,8 +217,10 @@ function addBookToTable() {
     newRow.appendChild(newButtonContainer);
 
     //add the event listener
-    newButton.addEventListener("click", () => {
+    newButton.addEventListener("click", (e) => {
       removeBookWindow.style.display = "flex";
+
+      selectedRow = e.target.closest("tr");
     });
 
     //append the new created element to the main container
@@ -185,4 +228,5 @@ function addBookToTable() {
   });
 }
 
+// call the add book function so it populates the list
 addBookToTable();

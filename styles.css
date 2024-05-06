@@ -275,3 +275,7 @@ body {
 .x-button:hover {
   transform: scale(1.1);
 }
+
+.checkbox-button {
+  cursor: pointer;
+}
